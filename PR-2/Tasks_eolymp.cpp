@@ -59,14 +59,14 @@ int main() {
 
     // T4
 
-    int t;
+    int p;
     int l;
     int w;
     int h;
 
-    cin>>t;
+    cin>>p;
 
-    for(int i = 0; i < t; ++i){
+    for(int i = 0; i <p; ++i){
         cin >> l >> w >> h;
     
         if (ceil((h * 2 * (l + w))/16.0) < 1) {
