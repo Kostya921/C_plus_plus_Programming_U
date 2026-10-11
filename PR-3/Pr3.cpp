@@ -133,24 +133,24 @@ int task2() {
     //cout << text[n] << endl << endl;
     //cout << text.at(1) << endl << endl;
 
-    switch (n) {
+   switch (n) {
         case 0:
-            cout << "Zh" << endl << endl << endl;
+            cout << text[0] << text[1] << endl << endl << endl;
             break;
         case 1:
-            cout << "y" << endl << endl << endl;
+            cout << text[2] << endl << endl << endl;
             break;
         case 2:
-            cout << "r" << endl << endl << endl;
+            cout << text[3] << endl << endl << endl;
             break;
         case 3:
-            cout << "n" << endl << endl << endl;
+            cout << text[4] << endl << endl << endl;
             break;
         case 4:
-            cout << "o" << endl << endl << endl;
+            cout << text[5] << endl << endl << endl;
             break;
         case 5:
-            cout << "v" << endl << endl << endl;
+            cout << text[6] << endl << endl << endl;
             break;
         default:
             cout << "\nIndex is out of range." << endl << endl << endl;
