@@ -43,12 +43,16 @@ void task1() {
 
     uniform_real_distribution<double> numbers(-100.0, 100.0);
 
-    double Arr[4][3] = {
-        {numbers(gen), numbers(gen), numbers(gen)},
-        {numbers(gen), numbers(gen), numbers(gen)},
-        {numbers(gen), numbers(gen), numbers(gen)},
-        {numbers(gen), numbers(gen), numbers(gen)}
-    };
+    double** Arr = new double*[4];
+    for (int i = 0; i < 4; i++) {
+        Arr[i] = new double[3];
+    }
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 3; j++) {
+            Arr[i][j] = numbers(gen);
+        }
+    }
 
 
     cout << "{\n";
@@ -63,17 +67,10 @@ void task1() {
     cout << "}\n\n";
 
 
-    int ArrSize = sizeof(Arr) / sizeof(Arr[0]);
+    double* SumArr = new double[4];
+    
 
-    //cout << "Size of array: " << ArrSize << endl << endl;
-
-    double SumArr[4] = {};
-
-    int SumArrSize = sizeof(SumArr) / sizeof(SumArr[0]);
-
-    //cout << "Size of SumArray: " << SumArrSize << endl << endl;
-
-    for (int i = 0; i < ArrSize; i++) {
+    for (int i = 0; i < 4; i++) {
         
         //-----------
         //auto Max = max_element(Arr, Arr + ArrSize);
@@ -83,7 +80,7 @@ void task1() {
         //-----------
 
 
-        double sum = 0;
+        double sum = 0.0;
 
         for (int j = 0; j < 3; j++) {
             sum += Arr[i][j];
@@ -92,13 +89,13 @@ void task1() {
         cout << "Sum of row " << i << ": " << sum << endl;
 
         SumArr[i] = sum;
-    
+
     }
 
 
-    auto Max = max_element(SumArr, SumArr + SumArrSize);
+    auto Max = max_element(SumArr, SumArr + 4);
 
-    for (int i = 0; i < SumArrSize; i++) {
+    for (int i = 0; i < 4; i++) {
         
         //cout << SumArr[i] << " ";
 
@@ -107,6 +104,16 @@ void task1() {
         }
         
     }
+
+
+    for (int i = 0; i < 4; i++) {
+        delete[] Arr[i];
+    }
+
+    delete[] Arr;
+
+    
+    delete[] SumArr;
 
 }
 
